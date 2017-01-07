@@ -1,0 +1,7 @@
+label {
+	display: none;
+}
+
+.form-inline .form-control {
+    display: none;
+}

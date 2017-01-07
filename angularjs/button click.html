@@ -1,0 +1,18 @@
+<html ng-app="myapp">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+  <script type="text/javascript">
+  	angular.module('myapp',[]).controller('testCtrl', function($scope){});
+  </script>
+</head>
+
+<body ng-controller="testCtrl">
+  <div class="btn-group" ng-init="style={'background-color' : 'green'}">
+    <button type="button" class="btn btn-default" ng-style="style1" ng-click="style1=style; style2=null">Celsius</button>
+    <button type="button" class="btn btn-default" ng-style="style2" ng-click="style2=style; style1=null">Fahrenheit</button>
+  </div>
+  <br>
+</body>
+
+</html>

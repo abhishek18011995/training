@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="tempArray = []">
+
+
+<input type="text" ng-model="inputText">
+<button type="button" ng-click="getResults()" >Click Here!</button>
+<div ng-repeat="x in tempArray" ng-show="(tempArray.length ? true: false)">
+
+StudenName {{x.name}}  {{x.sirName }}
+Student HTNO {{x.HTNo}}
+
+<table>
+<tr>
+<tr ng-repeat="(key,value) in x.subjectList">
+<td>{{key}}</td>
+<td>{{value}}</td>
+
+</tr>
+</table>
+</div>
+
+<script>
+var app = angular.module("myApp", []);
+app.factory('sampleFactory', function(){
+    return {
+"1001" : {HTNo : "1001", name : "srikanth1",sirName : "abcd", subjectList: {"english" : "80", "Hindi" : "75", "Science" : "75"}},
+"1002" : {HTNo : "1002", name : "srikanth2" ,sirName : "abcd",subjectList: {"english" : "80", "Hindi" : "75", "Science" : "75"}},
+"1003" : {HTNo : "1003", name : "srikanth3" ,sirName : "abcd",subjectList: {"english" : "80", "Hindi" : "75", "Science" : "75"}},
+"1004" : {HTNo : "1004", name : "srikanth4" ,sirName : "abcd",subjectList: {"english" : "80", "Hindi" : "75", "Science" : "75"}}
+}
+           
+});
+
+
+app.controller("myCtrl", function($scope,sampleFactory) {
+
+$scope.records= sampleFactory;
+$scope.getResults = function(){
+alert(JSON.stringify(sampleFactory));
+$scope.tempArray = []
+if($scope.records[$scope.inputText]){
+$scope.tempArray.push($scope.records[$scope.inputText]);
+$scope.inputText = ''; 
+}
+
+
+
+}
+
+});
+</script>
+
+</body>
+</html>

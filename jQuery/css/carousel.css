@@ -1,0 +1,35 @@
+.carousel-inner img{
+	margin: 0 auto;
+	padding-top: 25px;
+}
+
+#carousel-example-generic{
+	margin-bottom: 20px;
+}
+
+.item{
+	/*padding-bottom: 18px;*/
+	margin-bottom: 20px;
+}
+
+.footer{
+	background-color: #2a2730;
+	padding: 33px 10px 0px 10px;
+    margin-top: 50px;
+}
+
+.footer p{
+	color: #6a98a2;
+	font-family: arial;
+	font-size: 12px;
+}
+
+.footer_icons{
+	margin-top: 20px;
+}
+
+.footer_icons img{
+	float: right;
+	margin-left: 10px;
+	margin-bottom: 15px;
+}

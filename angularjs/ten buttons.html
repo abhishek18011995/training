@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Button</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<style type="text/css">
+		.btn{
+			width: 120px;
+		}
+
+		.green{
+			width: 
+			120px;
+			background-color: lightgreen;
+		}
+	</style>
+	<script type="text/javascript">
+		var app=angular.module('app',[]);
+        app.controller('ctrl',function($scope){
+
+			var array=document.querySelectorAll(".btn");
+			
+        	$scope.colorChange=function(){
+        		angular.forEach(array,function(x,y){
+        			array[y].className='btn';
+        		});
+           		var arr=$scope.inp.split('');
+        		// alert(arr);
+        		angular.forEach(arr,function(val){
+        			document.querySelectorAll(".btn")[val-1].className='btn green';
+        		});
+        	};
+
+        });
+	</script>
+</head>
+<body ng-app='app' ng-controller='ctrl'>
+	<button class="btn">1</button>
+	<button class="btn">2</button>
+	<button class="btn">3</button>
+	<button class="btn">4</button>
+	<button class="btn">5</button>
+	<button class="btn">6</button>
+	<button class="btn">7</button>
+	<button class="btn">8</button>
+	<button class="btn">9</button>
+	<button class="btn">10</button><br><br>
+	<input type="text" ng-model="inp">
+	{{colorChange()}}
+</body>
+</html>

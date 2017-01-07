@@ -1,0 +1,158 @@
+<!-- <!DOCTYPE html> -->
+<html>
+
+<head>
+    <title>Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/resources/ext-theme-neptune/ext-theme-neptune-all.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/ext-all.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="css/about.css"> -->
+    <script type="text/javascript">
+    Ext.onReady(function() {
+
+        // Ext.apply(Ext.form.VTypes, {
+        //     phoneNumber: function(val) {
+        //         return /\([2-9]\d\d\)\s[2-9]\d\d-\d{4}$/.test(v);
+        //     },
+        //     phoneText: 'Please enter a US Phone number in the format (999) 999-9999'
+        //     // usPhoneMask: /[\d\s\(\)\-]/i
+        // });
+
+        var form = Ext.create("Ext.form.Panel", {
+            // title: "Welcome Kumar Abhishek",
+            // width: 600,
+            // height: 530,
+            margin: '10 0 0 0',
+            border:false,
+            // layout: {
+            //     type: 'vbox',
+            //     // align: 'center',
+            // },
+            bodyStyle: {
+                //     'background-color': '#666666',
+                'padding': '20px 0px 10px 120px',
+            },
+            // renderTo: Ext.getBody(),
+            items: [{
+                xtype: 'textfield',
+                allowBlank: false,
+                fieldLabel: 'First Name',
+                blankText: "First name is required",
+                msgTarget: "under",
+                validateOnBlur: true,
+                // validateOnChange:false
+            }, {
+                xtype: 'textfield',
+                allowBlank: false,
+                fieldLabel: 'Last Name',
+                blankText: "Last name is required",
+                msgTarget: "under",
+                validateOnBlur: true,
+                // validateOnChange:false
+            }, {
+                xtype: 'textfield',
+                allowBlank: false,
+                // regex: ('^[A-Z]+$',"g"),
+                // maskRe:/^[0-9]*\.[0-9]+$/,
+                fieldLabel: 'User Name',
+                name:'userName',
+                blankText: "User name is required",
+                msgTarget: "under",
+                validateOnBlur: true,
+                // validateOnChange:false
+            }, {
+                xtype: 'textfield',
+                allowBlank: false,
+                fieldLabel: 'Email',
+                vtype: 'email',
+                blankText: "Email is required",
+                msgTarget: "under",
+                validateOnBlur: true,
+                // validateOnChange:false
+            }, {
+                xtype: 'textfield',
+                inputType: 'password',
+                name:'password',
+                allowBlank: false,
+                minLength: 6,
+                minLengthText: 'Password is too Short',
+                fieldLabel: 'Password',
+                blankText: "Password is required",
+                msgTarget: "under",
+                validateOnBlur: true,
+                // validateOnChange:false
+            }, {
+                xtype: 'textfield',
+                inputType: 'password',
+                fieldLabel: 'Confirm Password',
+                validator: function(val) {
+
+                    var pass = this.previousSibling().getValue();
+                    var errMsg = "passwords must match.";
+                    // return val===pass;
+                    return (val === pass) ? true : errMsg;
+                },
+                msgTarget: "under",
+                validateOnChange: false
+
+            }, {
+                xtype: 'datefield',
+                allowBlank: false,
+                fieldLabel: 'Date of Birth',
+                validateOnBlur: true
+            }, {
+                xtype: 'numberfield',
+                allowBlank: false,
+                fieldLabel: 'Mobile No.',
+                blankText: "Mobile number is required",
+                msgTarget: "under",
+                minLength: 10,
+                minLengthText: "mobile number is not correct",
+                maxLength: 10,
+                maxLengthText: "mobile number should be 10 digit",
+                validateOnBlur: true,
+                // validateOnChange:false,
+                hideTrigger: true
+            }, {
+                xtype: 'button',
+                text: 'Submit',
+                name: 'submit',
+                width: 80,
+                listeners:{
+                    afterrender:function(){
+                        var obj={
+                            userName:'Abhi',
+                            password:'yoyoyo'
+                        }
+                        this.up().getForm().setValues(obj);
+                    }
+                },
+                // handler: function(event, toolEl, panel) {
+
+                //     console.log(this.up("form").getValues());
+                //     console.log(this.up("form").getForm().getValues());
+                //     this.up("form").getForm().submit({
+                //         url: 'http://google.com'
+                //     })
+                // }
+            }]
+
+        });
+
+     var window=   Ext.create("Ext.window.Window", {
+        title:'Regitration Form',
+        width:500,
+        height:400,
+items:[form],
+// renderTo: Ext.getBody(),
+
+
+        });
+window.show();
+    });
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

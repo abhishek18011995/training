@@ -1,0 +1,63 @@
+what is objects
+	An object is a collection of properties, where property is an association between a key and a 	
+value.
+
+how many versions avialable in ext js and name them
+	there are total 6 version available in ext js
+
+what is extjs
+	Ext JS is a pure JavaScript application framework for building interactive cross platform web applications using techniques such as Ajax, DHTML and DOM scripting. 
+	
+what is mvc and mvvm
+	MVC is an anchitectural pattern that separates application into three components like 		
+model,view,controller
+
+
+	Model: The Model component corresponds to all the data related logic that the user works with.
+	View: The View component is used for all the UI  of the application. 
+	Controller: Controllers act as an interface between model and view components to process all 	
+	the business logic for the app
+
+	MVVM
+	Model - It simply holds the data and has nothing to do with any of the business logic.
+	ViewModel - It acts as the link between the Model and View.
+	View - It simply holds the formatted data and essentially delegates everything to the Model.
+	
+
+
+what is inheritence
+	objects inherits the properties from prototype objects in javaacript
+
+What are the component names in ext js
+	Viewport,container,panel,grid
+	
+
+
+what is difference between js and json object
+	
+what is difference between load and ready events
+	The main differences between them are: body.Onload() event will be called only after the DOM 	
+
+	and associated resources like images got loaded, but jQuery's document.ready() event will be 	
+
+	called once the DOM is loaded , it wont wait for the resources like images to get loaded
+	
+what is an event and event bus
+	javascript events are the things that happen to html elements like onclick,onblur
+	event bus is the way for objects to interact by using an central event		
+
+	
+difference between ext js and angular js
+	has a larger componenet librayr compared to angular
+	has rich UI
+	cross browser compatability
+	
+
+
+
+
+
+
+
+
+ 

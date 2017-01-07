@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style type="text/css">
+ table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<h2>Please select ID of the student</h2>
+
+<select ng-model="selectedCar" ng-options="x for (x, y) in persons"></select>
+
+<div class="r1">Student Name: {{selectedCar.Name}}</div>
+<!-- <div class="r2">Marks scored: {{selectedCar.Marks}}</div> -->
+<!-- <div class="r3">englishGrade obtained: {{selectedCar.englishGrade}}</div>
+<div class="r3">mathsGrade obtained: {{selectedCar.mathsGrade}}</div>
+<div class="r3">scienceGrade obtained: {{selectedCar.scienceGrade}}</div> -->
+              <table>
+                <th>Available entries</th>
+                  <tr><th>student_name</th><th>College</th><th>Course</th></tr>
+                  <tr><td>{{selectedCar.Name}}</td><td>{{getTotal(selectedCar.subjects)}}</td><td>{{x}}</td></tr>
+                 
+              </table>
+<div class="r4">total obtained:{{getTotal(selectedCar.subjects)}} {{selectedCar.subjects }}</div>
+
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+   
+    $scope.persons={
+  "ID1": {
+    "Name": "Raju",
+    "subjects": {
+      "teluguMarks": "90",
+      "englishGrade": "80",
+      "mathsGrade": "85",
+      "scienceGrade": "95"
+    }
+  },
+  "ID2": {
+    "Name": "avi",
+    "subjects": {
+      "teluguMarks": "90",
+      "englishGrade": "80",
+      "mathsGrade": "85",
+      "scienceGrade": "95"
+    }
+  },
+  "ID3": {
+    "Name": "Raju",
+    "subjects": {
+      "teluguMarks": "90",
+      "englishGrade": "80",
+      "mathsGrade": "85",
+      "scienceGrade": "95"
+    }
+  }
+}
+$scope.getTotal=function(obj){
+var count=0;
+angular.forEach(obj,function(value,key){
+console.log(value,key);
+count+=parseInt(value);
+});
+return count;
+}
+
+});
+</script>
+
+</body>
+</html>​​

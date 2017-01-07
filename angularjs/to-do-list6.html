@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <title>todo list</title>
+    <script type="text/javascript">
+        var app=angular.module('app',[]);
+        app.controller('ctrl',function($scope){
+            $scope.content=[{text:'abhi',done:false,done2:false},{text:'abhi',done:false,done2:false},{text:'abhi',done:false,done2:false}];
+
+            $scope.add=function(){
+                $scope.content.push({text:$scope.inputText,done:false,done2:false});
+                $scope.inputText='';
+            };
+
+            $scope.remove=function(){
+                var newContent=$scope.content;
+                $scope.content=[];
+                angular.forEach(newContent,function(val){
+                    if(!val.done  || !val.done2){
+                        $scope.content.push(val);
+                    }
+                });
+            };
+
+            $scope.checked=function(){
+                var count=0;
+                // alert($scope.content);
+                angular.forEach($scope.content,function(x){
+                    if(x.done==true){
+                        count++;
+                    }
+                        
+                });
+                return count;
+            };
+        });
+    </script>
+</head>
+<body ng-app='app' ng-controller='ctrl'>
+    <div ng-repeat='x in content'>
+        <input type="checkbox" ng-model='x.done'><span ng-bind='x.text'></span><input type="checkbox" ng-model='x.done2'>
+    </div>
+
+    <form>
+        <input type="text" ng-model='inputText'>
+        <button ng-click='add()'>SUBMIT</button>
+        <button ng-click='remove()'>REMOVE</button>
+        <h5>Checked Items : {{checked()}}</h5>
+    </form>
+
+</body>
+</html>

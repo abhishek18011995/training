@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TABLE</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<style type="text/css">
+		th,td,tr{
+			width: 200px;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		var app = angular.module("myApp", []);
+		app.controller("myCtrl", function($scope) {
+			$scope.details=[{regNo:'11',name:'Abhi',physics:70,chemistry:90,maths:94
+			// total:$scope.totalMarksArray[0]
+			// ,total:$scope.array[0]
+			,total:$scope.totalMarks()
+		},
+		{regNo:'11',name:'Abhi',physics:70,chemistry:90,maths:94
+			// total:$scope.totalMarksArray[0]
+			// ,total:$scope.array[1]
+			,total:$scope.totalMarks()
+		}];
+			
+			// $scope.array=[{total:''}];
+		$scope.totalMarks=function(){
+			$scope.totalMarksArray=[];
+			var total=0;
+			for(var i=0;i<$scope.details.length;i++){
+				total=$scope.details[i].physics+$scope.details[i].chemistry+$scope.details[i].maths;
+				$scope.totalMarksArray.push(total);
+				return total;
+			}
+			// return $scope.totalMarksArray;
+			// alert($scope.totalMarksArray);
+		};
+		// $scope.array=$scope.totalMarks();
+		// alert($scope.array);
+
+		});
+	</script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+	<table border='1'>
+		<tr><th>Reg. No</th><th>Name</th><th>Physics</th><th>Chemistry</th><th>Maths</th><th>Total</th><th>Grade</th></tr>
+		<tr   ng-repeat='x in details'><td>{{x.regNo}}</td><td>{{x.name}}</td><td>{{x.physics}}</td><td>{{x.chemistry}}</td><td>{{x.maths}}</td><td>{{x.total}}</td><td>Grade</td></tr>
+	</table>
+	<!-- {{totalMarks()}} -->
+</body>
+</html>

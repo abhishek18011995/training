@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+ <html>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+     <style type="text/css">
+      table {
+     font-family: arial, sans-serif;
+     border-collapse: collapse;
+     width: 100%;
+ }
+td, th {
+     border: 1px solid #dddddd;
+     text-align: left;
+     padding: 8px;
+ }
+tr:nth-child(even) {
+     background-color: #dddddd;
+ }
+table, th, td {
+    border: 1px solid black;
+ }
+    </style>
+     <body ng-app="myApp" ng-controller="myCtrl">
+         <br>
+
+             <!-- <div >
+                <table>
+                  <tr><th>student_name</th><th>College</th><th>Course</th></tr>
+                  <tr ng-repeat="x in contArr"><td>{{x.name}}</td><td>{{x.college}}</td><td>{{x.course}}</td></tr>
+                  
+                </table>
+             </div> -->
+             <!-- <form ng-submit="add()">
+                     <input type="text" ng-model="names">
+                     <input type="text" ng-model="colleges">
+      <input type="text" ng-model="courses">
+                    <input type="submit" value="add">
+                     
+             </form><br> -->
+            <!--  <form ng-submit="remove()">
+               <input type="submit" value="delete">
+             </form> -->
+            <form ng-submit="searches()">
+                <h1>Enter the student Name</h1>
+                <input type="text" ng-model="search">
+                <input type="submit" value="search">
+                <h1>All the available entries</h1>
+                <table>
+                 
+                   <tr><th>Stu_id</th><th>student_name</th><th>College</th><th>Subjects</th><th>Course</th><th>Total</th><th>Result</th></tr>
+                   <tr ng-repeat="x in values"><td>{{x.id}}</td><td>{{x.name}}</td><td>{{x.college}}</td>
+                   <td>
+                 
+                      <tr ng=repeat="(a,b) in x.subject">
+                        <td>{{a}}</td><td>{{b}}</td>
+                      </tr>
+                     
+                   </td><td>{{x.course}}</td><td>{{addsub(x.subject)}}</td><td>{{grade(x.subject)}}</td></tr>
+                  
+                  </table>
+             </form>
+
+             
+     <script>
+  var app = angular.module('myApp', []);
+  app.controller('myCtrl', function($scope) {
+     
+ 
+     $scope.contArr =[{id:1,name:'avi', college:"MSRIT",course:"cse",subject:{sub1:90,sub2:90,sub3:90,sub4:90,sub5:90}},
+                       {id:2,name:'abhi', college:"Mvit",course:"cse",subject:{sub1:80,sub2:80,sub3:80,sub4:80,sub5:80}},
+                       {id:3,name:'bailore', college:"BMSEs",course:"cse",subject:{sub1:70,sub2:70,sub3:70,sub4:70,sub5:70}},
+                       {id:4,name:'ashu', college:"IITM",course:"ece",subject:{sub1:60,sub2:60,sub3:60,sub4:60,sub5:60}},
+                       {id:5,name:'Ram', college:"VIT",course:"civil",subject:{sub1:50,sub2:50,sub3:50,sub4:50,sub5:50}}];
+
+
+     $scope.addsub=function(objs)
+     {       
+         var submarks=0;    
+         angular.forEach(objs, function(value,key){
+         console.log(value,key);
+         console.log(typeof(value));
+         submarks+=value;
+         console.log(submarks);
+         console.log(objs);
+         });
+         console.log(submarks);
+         return submarks;
+     }
+
+   $scope.grade=function(objs)
+   { 
+       var submarks=0;    
+         angular.forEach(objs, function(value,key){
+         console.log(value,key);
+         console.log(typeof(value));
+         submarks+=value;
+         console.log(submarks);
+         console.log(objs);
+         });
+         console.log(submarks);
+         
+    if(submarks>400)
+    {
+     return "pass";
+    }
+    else
+    {
+     return "fail";
+    }
+   }
+    
+     $scope.searches = function() 
+      {
+          var stu_id=$scope.search;
+          $scope.values=$scope.contArr;
+           var flag=0;
+          angular.forEach($scope.values, function(obj){
+       if(stu_id==obj.id)
+        { 
+             flag=1;
+         $scope.values=[];
+         $scope.values.push(obj);
+
+         }
+           });
+           if(flag==0)
+           {
+            $scope.values=[];
+           }
+       
+       }
+
+          
+   });
+
+</script>
+ </body>
+ </html>

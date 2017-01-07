@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rough</title>
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	 <script type="text/javascript">
+		var app = angular.module("myApp", []);
+		app.controller("myCtrl", function($scope) {
+			$scope.details=[{regNo:'11',name:'Abhi',subjects:{physics:99,chemistry:90,maths:94,}},
+							{regNo:'12',name:'Avi',subjects:{physics:78,chemistry:87,maths:92}},
+							{regNo:'13',name:'Harsha',subjects:{physics:60,chemistry:89,maths:90}}];
+						});
+		</script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+
+	<table border='1' ng-repeat="x in details" >
+	<tr><th>Reg. No</th><th>Name</th><th ng-repeat="(key,val) in x.subjects" >{{key}}</th><th>Total</th><th>Grade</th></tr>
+	<tr><td>{{x.regNo}}</td><td>{{x.name}}</td><td ng-repeat="(key,val) in x.subjects">{{val}}</td><td>{{add(x.subjects)}}</td><td>{{grade(x.subjects)}}</td></tr>
+	</table>
+</body>
+</html>

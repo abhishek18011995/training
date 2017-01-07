@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <body ng-app="myApp" ng-controller="todoCtrl">
+        <br>
+
+            <div ng-repeat="x in todoList">
+                <input type="checkbox" ng-model="x.done">
+                    <span ng-bind="x.todoText" ng-click="toggle()"></span>
+                </div>
+                <form ng-submit="todoAdd()">
+                    <input type="text" ng-model="todoInput" size="50" placeholder="Add New">
+                        <input type="submit" value="Add New">
+                            <p>total checked:{{count}}</p>
+                            <p>total check box: {{todoList.length}}</p>
+                        </form>
+                        <script>
+var app = angular.module('myApp', []);
+
+app.controller('todoCtrl', function($scope) {
+    $scope.todoList = [{todoText:'Clean House', done:false},{todoText:'Clean House', done:false},{todoText:'Clean House', done:false}];
+    var values=$scope.todoList;
+    $scope.todoAdd = function() {
+        $scope.todoList.push({todoText:$scope.todoInput, done:false});
+        $scope.todoInput = "";
+    };
+
+
+$scope.count=0;
+
+angular.forEach(values, function(obj){
+if(obj.done==true){
+       count=count+1;
+    
+    }
+});
+
+
+
+
+});
+</script>
+                    </body>
+                </html>
+

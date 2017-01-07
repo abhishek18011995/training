@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TEN BUTTON</title>
+	<style type="text/css">
+	.green{
+		background-color: #ff0000;
+	}
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/btn.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script type="text/javascript">
+
+		
+	var app = angular.module('app', []);
+	app.controller('btnCtrl', function($scope) {
+
+	    $scope.setColor = function() {
+	        for (var i = 0; i < document.querySelectorAll('.btn').length; i++) {
+
+	            document.querySelectorAll('.btn')[i].className = 'btn';
+
+	        }
+
+	        var str = $scope.inp;
+	        var arr = [];
+
+	        arr=str.split('');
+	        angular.forEach(arr, function(value) {
+
+	            document.querySelectorAll('.btn')[value-1].className = 'btn green';
+
+	        });
+
+	      
+
+	    }
+	});
+
+
+
+	</script>
+</head>
+<body ng-app="app" ng-controller="btnCtrl"  >
+	<button class="btn" >1</button>
+	<button class="btn" >2</button>
+	<button class="btn" >3</button>
+	<button class="btn" >4</button>
+	<button class="btn" >5</button>
+	<button class="btn" >6</button>
+	<button class="btn" >7</button>
+	<button class="btn" >8</button>
+	<button class="btn" >9</button>
+	<button class="btn" >10</button><br><br>
+	<input type="text" id='input1' ng-model="inp"><br><br>
+	<!-- <button id="sub" ng-click="setColor()">submit</button> -->
+	{{inp| json:2}}
+	{{setColor()}}
+
+	
+	
+	
+</body>
+</html>

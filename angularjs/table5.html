@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TABLE</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<style type="text/css">
+		th,td,tr{
+			width: 200px;
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		var app = angular.module("myApp", []);
+		app.controller("myCtrl", function($scope) {
+			$scope.details=[{regNo:'11',name:'Abhi',physics:59,chemistry:40,maths:94},
+							{regNo:'12',name:'Avi',physics:78,chemistry:87,maths:92},
+							{regNo:'13',name:'Harsha',physics:60,chemistry:89,maths:90}];
+			$scope.submitShow=true;				
+			$scope.inputShow=true;
+
+
+			$scope.add=function(x){
+				var total=x.physics+x.chemistry+x.maths;
+				return total;
+			};
+
+			$scope.grade=function(x){
+				var total=x.physics+x.chemistry+x.maths;
+				if(total>270){
+					return 'A';
+				}
+				if(total>240){
+					return 'B';
+				}
+				if(total>210){
+					return 'C';
+				}
+				if(total>180){
+					return 'D';
+				}
+			};
+
+			$scope.submit=function(){
+				$scope.tableShow=true;
+				$scope.submitShow=false;
+				$scope.inputShow=false;
+				$scope.array=[];
+				var inpReg=$scope.inp.split(',');
+				for(var i=0;i<$scope.details.length;i++){
+      				for(var j=0;j<inpReg.length;j++){
+
+        				if($scope.details[i].regNo==inpReg[j]){
+          					$scope.array.push($scope.details[i]);
+				        }
+				      }
+				    }
+			}
+
+		});
+	</script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+	<div ng-repeat="x in array">
+		<h1>Details Of:{{x.name}}</h1>
+	</div>
+
+	<table border='1' ng-show='tableShow'>
+		<tr><th>Reg. No</th><th>Name</th><th>Physics</th><th>Chemistry</th><th>Maths</th><th>Total</th><th>Grade</th></tr>
+		<tr  ng-repeat="x in array"><td>{{x.regNo}}</td><td>{{x.name}}</td><td>{{x.physics}}</td><td>{{x.chemistry}}</td><td>{{x.maths}}</td><td>{{add(x)}}</td><td>{{grade(x)}}</td></tr>
+	</table>
+	<input type="text" ng-model='inp' ng-show="inputShow" placeholder='enter registration number'>
+	<button ng-click='submit()' ng-show="submitShow">SUBMIT</button>
+	
+</body>
+</html>

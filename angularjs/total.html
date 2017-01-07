@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Total Sum</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<style type="text/css">
+	.newClass{
+		background-color: lightgreen;
+	}
+	</style>
+	<script type="text/javascript">
+		var app=angular.module('app',[]);
+        app.controller('ctrl',function($scope){
+        	$scope.content=[{
+        		name:'potato',
+        		price:12,
+        		done:false
+        	},{
+        		name:'tomato',
+        		price:15,
+        		done:false
+        	},{
+        		name:'onion',
+        		price:20,
+        		done:false
+        	}];
+
+        	$scope.toggle=function(x){
+        		x.done=!x.done;
+        	};
+
+        	$scope.total=function(){
+        		var sum=0;
+        		angular.forEach($scope.content,function(y){
+        			if(y.done){
+        				sum+=y.price;
+        			}
+        		});
+        		return sum;
+        	};
+        });
+	</script>
+</head>
+<body ng-app='app' ng-controller='ctrl'>
+	<div ng-repeat='x in content'>
+		<button ng-click='toggle(x)' ng-class="{newClass:x.done}"><span>{{x.name}} </span> {{x.price}}</button>
+	</div>
+
+	<div>
+		<span>Total:{{total()}}</span>
+	</div>
+</body>
+</html>

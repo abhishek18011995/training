@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+var arr=[];
+
+$(document).ready(function(){
+    $("button").ready(function(){
+        $.getJSON("https://jsonblob.com/api/582a8d50e4b0a828bd241419", function(result){
+$.each(result.details, function(i,j){
+ arr.push(j);
+ $.each(j, function(key,val){
+   $("div").append(key+ " : "+val+"<br>");
+
+});
+
+            });
+//alert(arr);
+window.arr1=arr;
+        });
+    });
+$("button").click(function(){
+var fname= $('#fInp').val();
+var lname= $('#lInp').val();
+//alert(fname);
+arr1.push({
+                "key": fname,
+                "key2":lname
+            });
+ var updatedObj = arr1;
+ var updatedData = JSON.stringify(updatedObj);
+
+    $.ajax({
+        url: "https://jsonblob.com/api/582a8d50e4b0a828bd241419",
+        type: "PUT",
+        data: updatedData,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (updatedData, textStatus, jqXHR) {
+            var json = JSON.stringify(updatedData);
+            $("#data").val(json);
+           
+        }
+            });
+});//click
+});//main
+</script>
+</head>
+<body>
+FNAME <input type='text' id='fInp'><br><br>
+LNAME <input type='text' id='lInp'><br><br>
+<button>Get JSON data</button>
+
+<div></div>
+
+</body>
+</html>
+

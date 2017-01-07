@@ -1,0 +1,163 @@
+<!-- <!DOCTYPE html> -->
+<html>
+
+<head>
+    <title>Grid</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/resources/ext-theme-neptune/ext-theme-neptune-all.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/ext-all.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="css/about.css"> -->
+    <script type="text/javascript">
+    Ext.onReady(function() {
+
+
+        var form = Ext.create("Ext.form.Panel", {
+
+                margin: '10 0 0 0',
+                border: false,
+                bodyStyle: {
+                    //     'background-color': '#666666',
+                    'padding': '20px 0px 10px 120px',
+                },
+                // renderTo: Ext.getBody(),
+                items: [{
+                        xtype: 'textfield',
+                        allowBlank: false,
+                        fieldLabel: 'Name',
+                        name:'name',
+                        blankText: "name is required",
+                        msgTarget: "under",
+                        validateOnBlur: true,
+                        // validateOnChange:false
+                    }, {
+                        xtype: 'textfield',
+                        allowBlank: false,
+                        fieldLabel: 'Email',
+                        vtype: 'email',
+                        name:'email',
+                        blankText: "Email is required",
+                        msgTarget: "under",
+                        validateOnBlur: true,
+                        // validateOnChange:false
+                    }, {
+                        xtype: 'numberfield',
+                        name:'phone',
+                        allowBlank: false,
+                        fieldLabel: 'Mobile No.',
+                        blankText: "Mobile number is required",
+                        msgTarget: "under",
+                        minLength: 10,
+                        minLengthText: "mobile number is not correct",
+                        maxLength: 10,
+                        maxLengthText: "mobile number should be 10 digit",
+                        validateOnBlur: true,
+                        // validateOnChange:false,
+                        hideTrigger: true
+                    }, {
+                        xtype: 'button',
+                        text: 'Submit',
+                        name: 'submit',
+                        width: 80,
+
+                            listeners: {
+                                click: function() {
+
+                                   
+                                    var val=this.up().getForm().getValues();
+                                   
+                                 
+                                    this.up().getForm().setValues(val);
+                                    grid.getSelectionModel().getSelection()[0].set(val);
+                                    console.log(grid.getSelectionModel().getSelection()[0]);
+                                    console.log(grid.getSelectionModel().getSelection()[0].data);
+                                    // form.getRecord().set(form.getValues());
+                                    // console.log(store.record.set('data','val'));
+                                     console.log(val);
+                                      window.close();
+                                }
+                            }
+                        // }
+                    
+                }]
+
+        });
+
+    var window = Ext.create("Ext.window.Window", {
+        title: 'Regitration Form',
+        width: 500,
+        height: 300,
+        items: [form],
+        closeAction:'hide'
+        // renderTo: Ext.getBody(),
+
+
+    });
+    // window.show();
+
+    var store = Ext.create('Ext.data.Store', {
+        fields: ['name', 'email', 'phone'],
+
+         data: {
+            'items': {
+                "list": [{
+                    'name': 'Lisa',
+                    "email": "lisa@simpsons.com",
+                    "phone": "5551111224"
+                }, {
+                    'name': 'Bart',
+                    "email": "bart@simpsons.com",
+                    "phone": "5552221234"
+                }, {
+                    'name': 'Homer',
+                    "email": "home@simpsons.com",
+                    "phone": "5552221244"
+                }, {
+                    'name': 'Marge',
+                    "email": "marge@simpsons.com",
+                    "phone": "5552221254"
+                }]
+            }
+        },
+        proxy: {
+            type: 'memory',
+            reader: {
+                type: 'json',
+                root: 'items.list'
+            }
+        }
+    });
+
+  var grid=  Ext.create('Ext.grid.Panel', {
+        title: 'Employee List',
+        store: store,
+        columns: [{
+            text: 'Name',
+            dataIndex: 'name'
+        }, {
+            text: 'Email',
+            dataIndex: 'email',
+            flex: 1
+        }, {
+            text: 'Phone',
+            dataIndex: 'phone'
+        }],
+        height: 200,
+        width: 400,
+        listeners: {
+            select: function(panel, record, index, eOpts) {
+
+                console.log(record.data);
+                form.getForm().setValues(record.data);
+                window.show();
+            }
+        },
+        renderTo: Ext.getBody()
+    });
+
+    }); //ready function
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

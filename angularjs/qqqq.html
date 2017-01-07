@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <link href=http://getbootstrap.com/dist/css/bootstrap.min.css rel=stylesheet>
+  <style type="text/css">
+  .thumbnail:first-child{
+    padding-left: 0px;
+  }
+  .thumbnail:last-child{
+    padding-right: 0px;
+  }
+  #inp{
+    margin-left: 30px;
+  }
+  </style>
+</head>
+<body ng-app="myApp">
+<div class="row" ng-controller="myCtrl">
+  <div class="col-sm-6 col-md-4" ng-repeat="x in array1">
+    <div class="thumbnail" >
+      <img src="{{x.img}}" alt="...">
+      <div class="caption">
+        <h3>{{x.heading}}</h3>
+        <p>{{x.text}}</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+    </div>
+    <input type="text" ng-model='imgSrc' id='inp'>
+    {{imgSource()}}
+</div>
+<script>
+var app = angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
+  $scope.array = [
+    {
+      "img" : "0.jpg",
+      "heading" : "Thumbnail label",
+      "text" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    },
+    {
+      "img" : "1.jpg",
+      "heading" : "Thumbnail label",
+      "text" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    },
+    {
+      "img" : "2.jpg",
+      "heading" : "Thumbnail label",
+      "text" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    }
+
+  ]
+
+
+  
+  $scope.imgSource=function(){
+    $scope.array1=[];
+    var arr=$scope.imgSrc.split(',');
+    for(var i=0;i<$scope.array.length;i++){
+      for(var j=0;j<arr.length;j++){
+
+        if($scope.array[i].img==arr[j]){
+          $scope.array1.push($scope.array[i]);
+        }
+      }
+    }
+    
+  };
+
+});
+</script>
+
+</body>
+</html>
+

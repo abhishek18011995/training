@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+<!-- 
+<div ng-app="myapp1">
+ 
+<p>Form</p>
+<p>Name : <input type="text" ng-model="name"  placeholder="Enter name here" ></p>
+<h1>My name is {{name}}</h1>
+
+<p>E-mail : <input type="text" ng-model="email" placeholder="Enter e-mail here"></p>
+<h1>E-mail id: {{email}}</h1>
+
+<p>phone : <input type="phone" ng-model="phone" placeholder="Enter phone here"></p>
+<h1>phone: {{phone}}</h1>
+
+</div> -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+
+<div id="App1" ng-app="shoppingCart" ng-controller="ShoppingCartController">
+  <h1>Your order</h1>
+ First Name: <input type="text" ng-model="firstName"><br>
+Last Name: <input type="text" ng-model="lastName"><br>
+<br>
+Full Name: {{firstName + " " + lastName}}
+</div>
+
+<div id="App2" ng-app="namesList" ng-controller="NamesController">
+  <h1>List of Names</h1>
+ <p>Input something in the input box:</p>
+<p>Name : <input type="text" ng-model="name" placeholder="Enter name here"></p>
+<h1>Hello {{name}}</h1>
+</div>
+<script type="text/javascript">
+	var shoppingCartModule = angular.module("shoppingCart", [])
+	shoppingCartModule.controller("ShoppingCartController",
+  			function($scope) {
+  
+   
+  			}
+	);
+	var namesModule = angular.module("namesList", [])
+namesModule.controller("NamesController",
+  function($scope) {
+    
+  }
+);
+angular.bootstrap(document.getElementById("App2"), ['namesList']);
+</script>
+
+
+
+</body>
+</html>

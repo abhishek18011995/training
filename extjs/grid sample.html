@@ -1,0 +1,205 @@
+<html>
+<head>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/resources/css/ext-all-neptune.css" type="text/css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/extjs/4.2.1/ext-all.js"></script>
+
+<style>
+.empClass .x-panel-header-text-container-default{
+	color : red;
+}
+
+</style>
+
+
+<script>
+	Ext.onReady(function(){
+		console.log("----------ExtJs--------")
+		var tempData = {
+				name:"XYZ",
+				cmp: "ABC",
+				loc: "Hyderabad"
+		};
+
+
+		Ext.create("Ext.Panel",{	
+			title : "My Panel",
+			//html : "Panel Body",
+			/*data: {
+				name:"Yasin",
+				cmp: "CTS",
+				loc: "Hyderabad"
+			},*/
+			height: 400,
+			width: 600,
+			layout: 'hbox',
+			/*tpl :["<h1>Emp Name: {name}</h1>",
+				"<div>Working For: {cmp}</div>",
+				"<div>Location: {loc}</div>"
+			],
+			tools: [{
+				type:'refresh',
+				handler: function(event, toolEl, panel){
+			        console.log(this.up('panel'))
+			        //.update(tempData)
+			    }
+			}],*/
+			collapsible  : true,
+			collapsed : true,
+			buttons : [{text:"Save"},
+				{text:"Cancel"}],
+			items : [{
+				xtype : 'panel',
+				title : "Emp Name",
+				width:"50%",
+				html:"<span>Emp Name</span>: ABC",
+				collapsible  : true,
+				collapsed : true,
+			},{
+				xtype : 'panel',
+				title : "Emp Company",
+				width:"50%",
+				html:"<span>Comapny Name</span>: CTS",
+				collapsible  : true,
+				collapsed : true,
+				cls : "empClass"
+			}]//,
+			//renderTo : Ext.getBody()
+		});
+		var count = 0;
+		var panel = Ext.create("Ext.Panel",{
+			title : "Employee Details",
+			layout: "card",
+			width: 600,
+			height: 350,
+			//renderTo : Ext.getBody(),
+			items : [{
+					title : "Panel 1",
+					html : "Panel 1"
+			},{
+					title : "Panel 2",
+					html : "Panel 2"
+			},{
+					title : "Panel 3",
+					html : "Panel 3"
+			},{
+					title : "Panel 3",
+					html : "Panel 3"
+			}],
+			buttons : [{
+				text : "Prevous",
+				disabled : true,
+				listeners: {
+					click : function(){
+						count = count -1;
+						panel.getLayout().setActiveItem(count);
+						//if(count > 2)
+						this.nextSibling().setDisabled(false)
+					}
+				}	
+			},{
+				text : "Next",
+				listeners: {
+					click : function(){
+						count = count + 1;
+						panel.getLayout().setActiveItem(count);
+						this.previousSibling().setDisabled(false)
+					}
+				}	
+			}]
+			
+		});
+		
+		var from = Ext.create("Ext.form.Panel",{
+			//renderTo : Ext.getBody(),
+			height : 200, 
+			width : 400,
+			title : "Login Form",
+			items : [{
+				xtype : "textfield",
+				fieldLabel : "Uaser Name",
+				name : "name"
+			},{
+				xtype : "textfield",
+				fieldLabel : "Email",
+				name : "email"
+			},{
+				xtype : "textfield",
+				fieldLabel : "Password",
+				name : "phone"
+			}],
+			
+			listeners: {
+					/*afterrender : function(){
+						var ob = {
+							username : "ABC",
+							password : "XYZ"
+						};
+						this.getForm().setValues(ob);
+					}*/
+				}
+		});
+
+		var windwo  = Ext.create("Ext.window.Window",{
+			title:"Login Window",
+			Height : 200,
+			width: 400,
+			modal: true,
+			items : [from],
+			buttons : [{
+				text : "Save",
+				listeners: {
+					click : function(){
+						this.up('window').close();
+					}
+				}
+			}]
+		});
+
+		//windwo.show();
+
+		var store = Ext.create("Ext.data.Store",{
+			fields : ['name','email','phone'],
+			data:{'items':[
+		        { 'name': 'Lisa',  "email":"lisa@simpsons.com",  "phone":"555-111-1224"  },
+		        { 'name': 'Bart',  "email":"bart@simpsons.com",  "phone":"555-222-1234" },
+		        { 'name': 'Homer', "email":"homer@simpsons.com",  "phone":"555-222-1244"  },
+		        { 'name': 'Marge', "email":"marge@simpsons.com", "phone":"555-222-1254"  }
+		    ]},
+			proxy: {
+		        type: 'memory',
+		        reader: {
+		            type: 'json',
+		            root: 'items'
+		        }
+		    }
+		});
+
+		Ext.create("Ext.grid.Panel",{
+			title : "Employee List",
+			store :store,
+			columns: [
+		        { text: 'Name',  dataIndex: 'name' },
+		        { text: 'Email', dataIndex: 'email', flex: 1 },
+		        { text: 'Phone', dataIndex: 'phone' }
+		    ],
+		    height: 200,
+		    width: 400,
+		    renderTo: Ext.getBody(),
+		    listeners: {
+					select: function( panel, record, index, eOpts ){
+						
+						from.getForm().setValues(record.data);
+						windwo.show();
+					}
+				}
+
+		})
+
+	});
+	
+</script>
+</head>
+<body>
+</body>
+</html>

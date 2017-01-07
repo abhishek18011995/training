@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+var arr=[];
+
+$(document).ready(function(){
+    $("button").ready(function(){
+        $.getJSON("https://jsonblob.com/api/582a8d50e4b0a828bd241419", function(result){
+$.each(result.details, function(i,j){
+ arr.push(j);
+ $.each(j, function(key,val){
+   $("div").append(key+ " : "+val+"<br>");
+
+});
+
+            });
+//alert(arr);
+window.arr1=arr;
+        });
+    });
+$("button").click(function(){
+arr1.push({
+                "key": "updated value",
+                "key2": "updated value2"
+            });
+ var updatedObj = arr1;
+ var updatedData = JSON.stringify(updatedObj);
+alert(arr1);
+    $.ajax({
+        url: "https://jsonblob.com/api/582a8d50e4b0a828bd241419",
+        type: "PUT",
+        data: updatedData,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (updatedData, textStatus, jqXHR) {
+            var json = JSON.stringify(updatedData);
+            $("#data").val(json);
+           
+        }
+            });
+});//click
+});//main
+</script>
+</head>
+<body>
+
+<button>Get JSON data</button>
+
+<div></div>
+
+</body>
+</html>
+

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <script src="http://code.angularjs.org/1.2.3/angular.min.js"></script>
+  <script>
+        var app = angular.module('myapp', []);
+        app.controller('mainController', function($scope) {
+          $scope.vm = {};
+          $scope.vm.myClick = function($event) {
+                alert($event);
+          }
+        });     
+  </script>  
+</head>
+<body ng-app="myapp">
+  <div ng-controller="mainController">
+    <input type="checkbox" ng-model="vm.myChkModel" ng-change="vm.myClick(vm.myChkModel)">
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+1)  What is a object?
+Ans.Objects are variables which can objects can contain many values in the form of key value pair
+
+
+2)  Versions of in ext js number and name them ?
+Ans.There are 6 versions of ext js so far.Ext js 1.1,Ext js 2.0,Ext js 3.0,Ext js 4.0,Ext js 5.0,Ext js 6.0.
+
+3)  What is ext js?
+Ans. Ext JS is a pure JavaScript application framework for building interactive cross platform web applications using techniques such as Ajax, DHTML and DOM scripting. 
+
+
+4)  What is MVC & MVVM ?
+Ans.Both are architectural patterns where MVC has three components model view and control.MVVM model view view model architecture it has two way data binding , it maintains a clear seperation between the front end and the back end.
+
+
+5)  What is inheritance ?
+Ans.Inheritance is the concept that when a class of objects is defined, any subclass that is defined can inherit the definitions of one or more general classes.
+
+
+6)  Component names in ext js ?
+Ans.Toolbar components,menu components,form components,chart components.
+
+
+7)  Difference b/w js objects and json objects ?
+Ans.In JSON the key and the value of the objects should be in quotes where as in js objects the key's needn't be in quotes .And also the js objects may contain methods or functions within them as objects.
+
+8)  What is difference between load and ready events ?
+Ans.The ready events adds functionalities as the html page loads it is not necessary for the page to load completely for the functionalities to work.Whereas the onload event load the functionalities only after the entire page is loaded.
+
+The load event is fired when a resource and its dependent resources have finished loading.
+The onload event occurs when an object has been loaded.
+
+onload is most often used within the <body> element to execute a script once a web page has completely loaded all content (including images, script files, CSS files, etc.).
+
+The ready event occurs when the DOM (document object model) has been loaded.
+
+
+9)  What is an event ? and event bus ?
+Ans. An Eventbus is a mechanism that allows different components to communicate with each other without knowing about each other. A component can send an Event to the Eventbus without knowing who will pick it up or how many others will pick it up.Examples of events are on-click,on-hover,onload,etc..
+
+HTML events are "things" that happen to HTML elements.
+
+When JavaScript is used in HTML pages, JavaScript can "react" on these events.
+
+10)Differnce b/w angular js and ext js jQuery ?
+Ans.AngularJS is a structural framework for dynamic web apps. AngularJS is HTML enhanced for web apps it does not have componets with rich UI. 
+Ext js on the other hand has UI rich components and it supports both MVC and 
+MVVM.
+jQuery:Has no such UI rich componets.And the DOM manipulation is difficult when compared to the other two frame works. 
+ 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body ng-app="myApp">
+
+<table ng-controller="myCtrl" border="1">
+<tr ng-repeat="x in array">
+  <td>{{x.Name}}</td>
+  <td>{{x.Country}}</td>
+</tr>
+</table>
+
+<script>
+var app = angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
+  $scope.array = [
+    {
+      "Name" : "Alfreds Futterkiste",
+      "Country" : "Germany"
+    },
+    {
+      "Name" : "Berglunds snabbköp",
+      "Country" : "Sweden"
+    },
+    {
+      "Name" : "Centro comercial Moctezuma",
+      "Country" : "Mexico"
+    },
+    {
+      "Name" : "Ernst Handel",
+      "Country" : "Austria"
+    }
+    ,
+    {
+      "Name" : "Abhishek",
+      "Country" : "India"
+    }
+
+  ]
+});
+</script>
+
+</body>
+</html>
+
