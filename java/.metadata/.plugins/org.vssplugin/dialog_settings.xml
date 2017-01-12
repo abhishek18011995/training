@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="EditionSelectionDialog">
+		<item value="false" key="onlyShowLastLabel"/>
+		<item value="false" key="showComments"/>
+		<item value="false" key="showNoLabels"/>
+	</section>
+	<section name="VSSProviderSettings">
+		<item value="$/" key="mountPoint"/>
+		<item value="false" key="supportsMultipleCheckouts"/>
+		<item value="/" key="sourceMountPoint"/>
+	</section>
+	<section name="checkOutView">
+		<item value="20" key="tagWidth_3"/>
+		<item value="40" key="tagWidth_4"/>
+		<item value="false" key="sortDirection"/>
+		<item value="40" key="tagWidth_5"/>
+		<item value="20" key="tagWidth_6"/>
+		<item value="25" key="tagWidth_7"/>
+		<item value="1" key="sortBy"/>
+		<item value="100" key="tagWidth_1"/>
+		<item value="-1" key="filterCheckOuts"/>
+		<item value="27" key="tagWidth_2"/>
+	</section>
+</section>

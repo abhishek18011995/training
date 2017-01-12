@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS2</title>
+</head>
+<body>
+<p id="demo"></p>
+<script type="text/javascript">
+	var str1="abhi";
+	var j = 0;
+	var reversedString="";
+
+
+	while(str1.charAt(j) != ""){
+       j++;
+	}
+
+	for(var i=j;i>=0;i--){
+		reversedString += str1.charAt(i);
+	}
+	document.getElementById("demo").innerHTML=reversedString;
+
+</script>
+</body>
+</html>

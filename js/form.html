@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FORM</title>
+</head>
+<body>
+<div id="demo"></div>
+<button onclick="x">dhghdh</button>
+<script type="text/javascript">
+   var  x=function () {
+   	return 1;
+   }
+
+   document.getElementById("demo").innerHTML=x;
+	var body=document.body;
+	var form=document.createElement("form");
+	form.setAttribute("action","#");
+	body.appendChild(form);
+
+	var uname=document.createElement("label");
+	var unameText=document.createTextNode("UserName");
+	uname.appendChild(unameText);
+	form.appendChild(uname);
+	uname.setAttribute("id","username");
+	// var username=document.getElementById("username");
+	// username.style.color=red;
+	// uname.setAttribute("color","red");
+	// unameText.style.color=red;
+
+	var input1=document.createElement("input");
+	input1.setAttribute("type","text");
+	form.appendChild(input1);
+
+	var br=document.createElement("br");
+	form.appendChild(br);
+
+	var password=document.createElement("label");
+	var passwordText=document.createTextNode("Password");
+	password.appendChild(passwordText);
+	form.appendChild(password);
+	var input2=document.createElement("input");
+	input2.setAttribute("type","password");
+	form.appendChild(input2);
+	var br=document.createElement("br");
+	form.appendChild(br);
+
+	var phone=document.createElement("label");
+	var phoneNumber=document.createTextNode("Phone");
+	phone.appendChild(phoneNumber);
+	form.appendChild(phone);
+
+	var input3=document.createElement("input");
+	input3.setAttribute("type","text");
+	form.appendChild(input3);
+
+	var br=document.createElement("br");
+	form.appendChild(br);
+
+	var br=document.createElement("br");	
+	form.appendChild(br);
+
+	var sub=document.createElement("input");
+	sub.setAttribute("type","submit");
+	form.appendChild(sub);
+
+
+
+</script>
+</body>
+</html>

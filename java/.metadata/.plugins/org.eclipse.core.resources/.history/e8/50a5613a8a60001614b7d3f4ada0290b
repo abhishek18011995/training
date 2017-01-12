@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+
+public class Main {
+
+
+
+/*public void right()
+{
+	
+	
+}*/
+	
+	public  static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		int n;
+		//System.out.println("Shift Value : ");
+		//Main m=new Main();
+	
+		//String s1;
+		//System.out.println("("+s1=scan.next()+")");
+		//System.out.println("Text to be encrypted :");
+		String s1=scan.nextLine();
+		n=scan.nextInt();
+		
+		int as,len,i;
+		len=s1.length();
+		
+		String [] y = s1.split("");
+		for(i=0;i<len;i++)
+		{
+			y[i]=y[i+n];
+		}
+		System.out.println(y);
+	}
+}

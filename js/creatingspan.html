@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>add SPAN</title>
+</head>
+<body>
+<div id="div1" onclick="shravu()">add here</div>
+
+<script type="text/javascript">
+function shravu(){
+	var span=document.createElement("span");
+	var text=document.createTextNode("Span Text");
+	var class1=document.createAttribute("class");
+	class1.value="class1";
+	span.setAttribute("class","class1");
+	span.appendChild(text);
+document.getElementById("div1").appendChild(span);
+}
+
+</script>
+</body>
+</html>

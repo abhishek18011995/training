@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TABLE</title>
+	<style type="text/css">
+	table{
+	width: 17%;
+    text-align: center;
+    margin: 0 auto;
+	}
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+
+	var table="<table border=2>";
+	var n = prompt("Enter Number", "0") ;
+	var m = prompt("Multiplier", "1") 
+	for(var i=1;i<=m;i++){
+		table+="<tr><td>"+n+"</td><td>"+'*'+"</td><td>"+i+"</td><td>"+"="+"</td><td>"+eval(n*i)+"</td></tr>";
+	}
+	table+="</table>";
+	document.write(table);
+</script>
+</body>
+</html>

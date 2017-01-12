@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>THREE DIVS</title>
+<link href=http://getbootstrap.com/dist/css/bootstrap.min.css rel=stylesheet>
+</head>
+<body>
+<script type="text/javascript">
+for(var i=0;i<3;i++){
+	var body=document.body;
+	var divTag1=document.createElement("div");
+	body.appendChild(divTag1);
+	divTag1.setAttribute("class","col-sm-6 col-md-4");
+
+	var divTag1=document.createElement("div");
+	divTag1.setAttribute("class","thumbnail");
+	divTag1.appendChild(divTag1);
+	
+
+	var img=document.createElement("img");
+	divTag2.appendChild(img);
+	img.setAttribute("src","12.jpg");
+
+	var divTag3=document.createElement("div");
+	divTag2.appendChild(divTag3);
+	divTag3.setAttribute("class","caption");
+
+	var h3=document.createElement("h3");
+	divTag3.appendChild(h3);
+	var h3Text=document.createTextNode("Thumbnail label");
+	h3.appendChild(h3Text);
+
+	var pTag=document.createElement("p");
+	divTag3.appendChild(pTag);
+	var pText=document.createTextNode("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.");
+	pTag.appendChild(pText);
+
+	var pTag2=document.createElement("p");
+	divTag3.appendChild(pTag2);
+
+	var aTag=document.createElement("a");
+	pTag2.appendChild(aTag);
+	var aText=document.createTextNode("Button");
+	aTag.appendChild(aText);
+	aTag.setAttribute("class","btn btn-primary");
+	aTag.setAttribute("href","#");
+	aTag.setAttribute("role","button");
+
+	var aTag=document.createElement("a");
+	pTag2.appendChild(aTag);
+	var aText=document.createTextNode("Button");
+	aTag.appendChild(aText);
+	aTag.setAttribute("class","btn btn-default");
+	aTag.setAttribute("href","#");
+	aTag.setAttribute("role","button");
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CALCULATOR</title>
+	<script type="text/javascript">
+	var val;
+		function button(value){
+			val=value;
+		}
+
+		function calc(){
+			var a=document.getElementById("input1").value;
+			var b=document.getElementById("input2").value;
+			var c=document.getElementById("result").value;		
+			// var a=document.getElementById("input1").value;	
+
+			switch (val){
+				case 0:
+					result=a+b;
+					return result;
+					break;
+
+				case 1:
+					result=a-b;
+					return result;
+					break;
+
+				case 2:
+					result=a*b;
+					return result;
+					break;
+
+				case 3:
+					result=a/b;
+					return result;
+					
+			}
+
+			c.value=result;
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="input1" value="">
+	<button id="plus" value="0" onclick="button(this.value)">plus</button>
+	<button id="minus" value="1" onclick="button(this.value)">minus</button>
+	<button id="multiple" value="2" onclick="button(this.value)">multiple</button>
+	<button id="divide" value="3" onclick="button(this.value)">divide</button>
+	<input type="text" id="input2" value="">
+	<button onclick="calc()" id="result"></button>
+	<!-- <input type="text" id="result" onclick="calc()"> -->
+</body>
+</html>

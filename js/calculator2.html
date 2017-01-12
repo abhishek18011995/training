@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+// 	function calc(a,b,ch){
+//            if(isNaN(a) || isNaN(b)){console.log("use numbers only");return;}
+// switch(ch){
+//     case('+'):{
+                
+//                 return(a+b);
+//               }
+//     case('-'):{
+              
+//               return(a-b);
+//               }
+//     case('*'):{
+               
+//                  return(a*b);
+//                }
+//      case('/'):{
+//                 if(b==0)
+//                   {console.log("divedend cant be zero");
+//                    return;
+//                   }
+//                 return (a/b);
+//                }
+//      case('mul'):{for(var i=0;i<=b;i++)
+//              {
+//              console.log(a+"*"+i+"="+a*i); }}
+//       }
+                        
+// }
+
+var cal = {
+        add:function(a,b){
+            return(a+b);},
+        sub:function(a,b){
+            return(a-b);},
+        mult:function(a,b){
+             return(a*b);},
+        div:function(a,b){
+                         if(b==0)
+                         {console.log("divedend cant be zero");
+                          return;}
+                          else{return(a/b);}
+                         },
+        tabl:function(a,b){
+                         for(var i=0;i<=b;i++)
+                         {
+                          console.log(a+"*"+i+"="+a*i); }
+                          }
+}
+
+</script>
+</body>
+</html>

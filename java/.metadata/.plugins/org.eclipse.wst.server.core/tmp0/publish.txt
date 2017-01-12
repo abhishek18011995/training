@@ -1,0 +1,5 @@
+#Tomcat publish data
+#Sat Sep 03 14:50:37 IST 2016
+org.eclipse.jst.jee.server\:loginform=D\:\\Apache Software Foundation\\Tomcat 6.0\\wtpwebapps\\loginform
+org.eclipse.jst.jee.server\:indexjsp=D\:\\Apache Software Foundation\\Tomcat 6.0\\wtpwebapps\\indexjsp
+org.eclipse.jst.jee.server\:loginform2=D\:\\Apache Software Foundation\\Tomcat 6.0\\wtpwebapps\\loginform2

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CALCULATOR</title>
+</head>
+<body>
+<h3>Simple Calculator</h3>
+
+<form name="cal">
+	<table border="2">
+		<tr>
+			<td colspan=4><input type=text name="result"></td>
+			<!-- <td colspan=4><input type=text Name="display"></td> -->
+
+		</tr>
+
+		<tr>
+			<td><input type="button" name="0" value="0" onclick="calc(this.value)"></td>
+			<td><input type="button" name="1" value="1" onclick="calc(this.value)"></td>
+			<td><input type="button" name="2" value="2" onclick="calc(this.value)"></td>
+			<td><input type="button" name="+" value="+" onclick="calc(this.value)"></td>
+		</tr>
+
+		<tr>
+			<td><input type="button" name="3" value="3" onclick="calc(this.value)"></td>
+			<td><input type="button" name="4" value="4" onclick="calc(this.value)"></td>
+			<td><input type="button" name="5" value="5" onclick="calc(this.value)"></td>
+			<td><input type="button" name="-" value="-" onclick="calc(this.value)"></td>
+		</tr>
+
+		<tr>
+			<td><input type="button" name="6" value="6" onclick="calc(this.value)"></td>
+			<td><input type="button" name="7" value="7" onclick="calc(this.value)"></td>
+			<td><input type="button" name="8" value="8" onclick="calc(this.value)"></td>
+			<td><input type="button" name="x" value="*" onclick="calc(this.value)"></td>
+		</tr>
+
+		<tr>
+			<td><input type="button" name="9" value="9" onclick="calc(this.value)"></td>
+			<td><input type="button" name="c" value="c" onclick="cal.result.value=''"></td>
+			<td><input type="button" name="=" value="=" onclick="cal.result.value=eval(cal.result.value)"></td>
+			<td><input type="button" name="/" value="/" onclick="calc(this.value)"></td>
+		</tr>
+
+	</table>
+</form>
+<script type="text/javascript">
+	function calc(arg){
+		cal.result.value+=arg;
+		var val1=cal.result.value;
+		return val1;	
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	
+<link rel="stylesheet" href=" css/style.css" type="text/css"/>
+</head>
+<body>
+<script type="text/javascript">
+	
+var src = ["0.jpg","1.jpg","2.jpg"];
+
+
+var text = ["Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.","There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.","Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."]
+
+
+var thumb = ["Thumbnail label","Thumbnail label","Thumbnail label"]
+
+
+
+var imgarr =[] ;
+
+for (var i = 0; i < src.length; i++) 
+{
+	imgarr[i]='<div class="col-sm-6 col-md-4"><div class="thumbnail"><img src='+src[i]+'> </img><div class="caption"><h3>'+thumb[i]+'</h3><p>'+text[i]+'</p><p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p></div></div></div>';
+}
+document.write(imgarr.join(''));
+
+</script>
+
+</body>
+</html>

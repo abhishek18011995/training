@@ -1,0 +1,36 @@
+*,ul,li{
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+	list-style-type: none;
+	text-decoration: none;
+}
+
+a{
+	color: black;
+}
+
+.wrapper{
+	padding: 50px;
+}
+
+#button{
+	float: left;
+    width: 130px;
+    height: 30px;
+    clear: left;
+}
+
+#sidePanel{
+	float: left;
+	margin-left: 50px;
+    width: 0px;
+    background-color: #fff9f6;
+}
+
+#sidePanel ul li{
+	border-bottom: 1px solid #ffd5ae;
+    text-align: center;
+    padding: 11px;
+    box-shadow: 1px 1px 12px #ebc9a4;
+}

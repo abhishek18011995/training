@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+Scanner n1=new Scanner(System.in);
+int i,j,count=0;
+int n=n1.nextInt();
+int a[]=new int[n];
+for(i=0;i<n;i++)
+{
+	a[i]=n1.nextInt();
+}
+for(i=0;i<n;i++)
+{
+	for(j=i+1;j<n;j++)
+	{
+		if(j>i && a[i]==a[j])
+		{
+			count++;
+		}
+	}
+}
+System.out.println(count);
+	}
+
+}

@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>AJAX</title>
+</head>
+<body>
+<input type="text" name="country" id="inputCountry"><br>
+<button onclick="fetch()">Fetch Country Details</button></br></br>
+<div id="countryDetails"></div>
+<script type="text/javascript">
+function fetch(){
+	var xhr=new XMLHttpRequest();
+	var inputCountry=document.getElementById("inputCountry").value;
+	var url="http://services.groupkt.com/state/get/"+inputCountry+"/all";
+	var content="<table border='1'><th>State</th><th>Capital</th>";
+	xhr.open("get",url,true);
+	xhr.send();
+	xhr.onreadystatechange=function(){
+		if(xhr.readyState==4 && xhr.status==200){
+			var result=xhr.responseText;
+			var parsedData= JSON.parse(result).RestResponse.result;
+			for(var i =0; i <parsedData.length; i++){
+			content+="<tr><td>"+parsedData[i].name+"</td><td>"+parsedData[i].capital+"</td></tr>";
+			}
+	content+="</table>";
+	document.getElementById("countryDetails").innerHTML = content;
+	}	
+			
+	}
+}
+</script>
+</body>
+</html>
