@@ -17,12 +17,15 @@ function sorting()
 	var a,b;
 	return a - b;
 }
-function myFunction() {
-document.getElementById("demo").innerHTML = points.sort(sorting());
-}
+
 // function myFunction() {
-//     points.sort(function(a, b){return a - b});
-//     document.getElementById("demo").innerHTML = points;
+// document.getElementById("demo").innerHTML = points.sort(sorting());
+// }
+
+
+function myFunction() {
+    points.sort(function(a, b){return a - b});
+    document.getElementById("demo").innerHTML = points;
 }
 </script>
 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Analog Clock</title>
+	<style type="text/css">
+		#myCanvas{
+			/*margin:0px auto;*/
+			border: 1px solid;
+			box-sizing: border-box;
+			background-color: #333;
+		}
+	</style>
+</head>
+<body>
+
+<canvas id="myCanvas" width='400' height='400'></canvas>
+<script type="text/javascript">
+	
+var canvas=document.getElementById('myCanvas');
+var ctx=canvas.getContext('2d');
+var radius=(canvas.width)/2;
+ctx.translate(radius,radius);
+radius=radius*0.90;
+
+//draw clock circle
+ctx.beginPath();
+ctx.arc(0,0,radius,0,2*Math.PI);
+ctx.fillStyle='white';
+ctx.fill();
+
+//draw gradient
+var grad=ctx.createRadialGradient(0,0,radius-4,0,0,radius+4);
+  grad.addColorStop(0, '#333');
+  grad.addColorStop(0.5, 'white');
+  grad.addColorStop(1, '#333');
+  ctx.strokeStyle=grad;
+  ctx.lineWidth=7;
+  ctx.stroke();
+
+  //draw small circle
+  ctx.beginPath();
+  ctx.arc(0,0,radius*0.05,0,2*Math.PI);
+  ctx.fillStyle="black";
+  ctx.fill();
+
+  //draw numbers
+  ctx.font=radius*0.2+'px arial';
+  ctx.textAlign='center';
+  ctx.textBaseline='top';
+  ctx.fillText('12',0,-radius);
+  for(var i=0;i<13;i++){
+
+  	
+  }
+</script>
+</body>
+</html>

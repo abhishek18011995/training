@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Table</title>
+	<style type="text/css">
+		table,tr,td{
+			border:1px solid black;
+			border-collapse: collapse;
+			width: 20%;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<p id="table"></p>
+<script type="text/javascript">
+	var product="<table>",a,b;
+	 a=prompt("Enter the number",0);
+	 b=prompt("Enter till which multiple",0);
+
+	// var table;
+	
+	for(var i=1;i<=b;i++){
+
+		 product+="<tr><td>"+a+"</td><td>*</td><td>"+i+"</td><td>=</td><td>"+a*i+"</td></tr>";
+
+	}
+
+	product+="</table>";
+	document.getElementById("table").innerHTML=product;
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form</title>
+</head>
+<body>
+<script type="text/javascript">
+var gap=document.createElement('br');
+	var body=document.body;
+	var form=document.createElement('form');
+	body.appendChild(form);
+
+	var label1=document.createElement('label');
+	var userName=document.createTextNode('User Name  ');
+	form.appendChild(label1);
+	label1.appendChild(userName);
+	// label.appendChild(space);
+	var input=document.createElement('input');
+	input.setAttribute('type','text');
+	input.setAttribute('width','25px');
+	form.appendChild(input);
+	form.appendChild(gap);
+
+	var label2=document.createElement('label');
+	var password=document.createTextNode('Password  ');
+	form.appendChild(label2);
+	label2.appendChild(password);
+	// label.appendChild(space);
+	var input2=document.createElement('input');
+	input2.setAttribute('type','password');
+
+	input2.setAttribute('width','25px');
+	form.appendChild(input2);
+
+
+
+</script>
+</body>
+</html>

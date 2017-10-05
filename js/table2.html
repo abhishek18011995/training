@@ -11,13 +11,13 @@ var num = parseInt(num);
 var i = 0;
 var multiplier= prompt("Enter multiplier", "0")
  
-document.write('<table border="1" cellspacing="0">');
+table='<table border="1">';
 for(i=1;i<=multiplier;i++) {
-    document.write("<tr><td>" + num + " x " + i + " = " + num*i + "</td></tr>");
+    table+=("<tr><td>" + num + " x " + i + " = " + eval(num*i) + "</td></tr>");
 }
- 
-document.write("</table>");
-</script><table border="1" cellspacing="0"></table>
+ 	table+="</table>";
+	document.write(table);
+</script>
 
 </body>
-</html>​
+</html>
