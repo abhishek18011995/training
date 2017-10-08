@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Digital Clock</title>
+    <style type="text/css">
+    #digital-canvas {
+        border: 1px solid;
+        box-sizing: border-box;
+        background-color: #333;
+    }
+    </style>
+</head>
+
+<body>
+    <canvas id="digital-canvas" width='400' height='200'></canvas>
+    <script type="text/javascript">
+    var digCanvas = document.getElementById('digital-canvas');
+    var digCtx = digCanvas.getContext('2d');
+    digCtx.translate(40, 40);
+
+    setInterval(digitalClock, 500);
+
+//complete digital clock
+    function digitalClock() {
+        digitalFace();
+        getDigitalTime()
+    }
+
+
+//face of digital clock
+    function digitalFace() {
+
+        digCtx.beginPath();
+        digCtx.fillStyle = 'white';
+        digCtx.fillRect(0, 0, 320, 120);
+    }
+
+
+
+    //get time of dugutal clock
+    function getDigitalTime() {
+
+        var date = new Date();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+        h = h % 12;
+
+        h = checkTime(h);
+        m = checkTime(m);
+        s = checkTime(s);
+
+        var digTime = h + ":" + m + ":" + s;
+        digitalTime(digCtx, digTime);
+    }
+
+
+//show digital time
+    function digitalTime(digCtx, digTime) {
+
+        digCtx.beginPath();
+        digCtx.font = '70px arial';
+        digCtx.fillStyle = 'black';
+        digCtx.textAlign = 'center';
+        digCtx.fillText(digTime, 150, 80);
+    }
+
+//make time is of 2-digits
+    function checkTime(x) {
+        if (x < 10) {
+
+            x = '0' + x;
+            return x;
+        } else {
+            return x;
+        }
+    }
+    </script>
+</body>
+
+</html>

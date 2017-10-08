@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Clock App</title>
+    <style type="text/css">
+
+    .clear{
+        clear: both;
+    }
+    #chooseCountry {
+        margin-bottom: 100px;
+        margin-top: 50px;
+        float: left;
+    }
+
+    #chooseClock {
+        margin-bottom: 100px;
+        margin-top: 50px;
+        float: right;
+    }
+
+    #digital-canvas {
+        border: 1px solid;
+        box-sizing: border-box;
+        background-color: #333;
+    }
+
+    #analog-canvas {
+        border: 1px solid;
+        box-sizing: border-box;
+        background-color: #333;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="chooseCountry">
+     <!--    <label>Choose Time Zone of Different Countries </label>
+        <select id="select-country" onchange='selectCountry()'>
+            <option value="india">India</option>
+            <option value="eastEurope">East Europe</option>
+        </select> -->
+    </div>
+    <div id="chooseClock">
+        <label>Choose Clock </label>
+        <select id="sel" onchange='currentValue()'>
+            <option value="analog">Analog</option>
+            <option value="digital">Digital</option>
+        </select>
+    </div>
+    <div class="clear"></div>
+    <div id='digital-clock' class="clock">
+        <canvas id="digital-canvas" width='400' height='200'></canvas>
+    </div>
+    <div id='analog-clock' class="clock">
+        <canvas id="analog-canvas" width='400' height='400'></canvas>
+    </div>
+    <script type="text/javascript">
+    document.getElementById('digital-clock').style.display = 'none';
+
+
+    // deciding the clock
+    function currentValue() {
+        var val = document.getElementById('sel').value;
+        console.log(val);
+        if (val == 'analog') {
+            document.getElementById('digital-clock').style.display = 'none';
+            document.getElementById('analog-clock').style.display = 'block';
+        }
+        if (val == 'digital') {
+            document.getElementById('analog-clock').style.display = 'none';
+            document.getElementById('digital-clock').style.display = 'block';
+        }
+    }
+
+
+    var analogCanvas = document.getElementById('analog-canvas');
+    var ctx = analogCanvas.getContext('2d');
+    var radius = (analogCanvas.width) / 2;
+    ctx.translate(radius, radius);
+    radius = radius * 0.90;
+    setInterval(drawClock, 500);
+    setInterval(digitalClock, 500);
+
+    //draw clock
+    function drawClock() {
+
+        drawClockCircle(ctx, radius);
+        drawgradient(ctx, radius);
+        smallCircle(ctx, radius);
+        drawNumbers(ctx, radius);
+        getTime(ctx, radius);
+    }
+
+    //draw clock circle
+    function drawClockCircle(ctx, radius) {
+        ctx.beginPath();
+        ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+    }
+
+
+    //draw gradient
+    function drawgradient(ctx, radius) {
+        var grad = ctx.createRadialGradient(0, 0, radius - 4, 0, 0, radius + 4);
+        grad.addColorStop(0, '#333');
+        grad.addColorStop(0.5, 'white');
+        grad.addColorStop(1, '#333');
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 7;
+        ctx.stroke();
+    }
+
+
+    //draw small circle
+    function smallCircle(ctx, radius) {
+
+        ctx.beginPath();
+        ctx.arc(0, 0, radius * 0.05, 0, 2 * Math.PI);
+        ctx.fillStyle = "black";
+        ctx.fill();
+    }
+
+    //draw numbers
+    function drawNumbers(ctx, radius) {
+        ctx.font = radius * 0.15 + 'px arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        // ctx.fillText('12',0,-radius);
+        for (var i = 12; i > 0; i--) {
+
+            ctx.rotate((Math.PI / 6) * (i));
+            ctx.fillText(i, 0, 5 - radius);
+            ctx.rotate(-(Math.PI / 6) * (i));
+        }
+    }
+
+    //time
+    function getTime() {
+
+        var date = new Date();
+        var h = date.getUTCHours();
+        var m = date.getUTCMinutes();
+        var s = date.getUTCSeconds();
+
+        // if () {
+
+        // }
+
+        h = h % 12;
+        //analog time
+        if (document.getElementById('sel').value == 'analog') {
+
+            getAnalogTime(ctx, radius, h, m, s);
+        }
+
+        //digital time
+        if (document.getElementById('sel').value == 'digital') {
+
+            getDigitalTime(digCtx, h, m, s);
+        }
+
+
+
+    }
+
+
+    function getAnalogTime(ctx, radius, h, m, s) {
+
+        //hour hand
+        drawHand(ctx, radius * 0.5, radius * 0.05, (Math.PI / 6) * h);
+        //minute hand
+        drawHand(ctx, radius * 0.7, radius * 0.05, (Math.PI / 30) * m);
+        //hour hand
+        drawHand(ctx, radius * 0.8, radius * 0.02, (Math.PI / 30) * s);
+    }
+
+
+    function drawHand(ctx, length, width, handPosition) {
+
+        ctx.beginPath();
+        var handLength = length;
+        ctx.lineWidth = width;
+        ctx.moveTo(0, 0);
+        ctx.rotate(handPosition);
+        ctx.lineTo(0, -handLength);
+        ctx.strokeStyle = "black";
+        ctx.lineCap = 'round';
+        // console.log(handPosition*180/Math.PI);
+        ctx.stroke();
+        ctx.rotate(-handPosition);
+    }
+
+
+
+
+    var digCanvas = document.getElementById('digital-canvas');
+    var digCtx = digCanvas.getContext('2d');
+    digCtx.translate(40, 40);
+
+    setInterval(digitalClock, 500);
+
+    //complete digital clock
+    function digitalClock() {
+        digitalFace();
+        getTime();
+    }
+
+
+    //face of digital clock
+    function digitalFace() {
+
+        digCtx.beginPath();
+        digCtx.fillStyle = 'white';
+        digCtx.fillRect(0, 0, 320, 120);
+    }
+
+
+
+    //get time of dugutal clock
+    // function getDigitalTime() {
+
+    //     var date = new Date();
+    //     var h = date.getUTCHours();
+    //     var m = date.getUTCMinutes();
+    //     var s = date.getUTCSeconds();
+    //     h = h % 12;
+
+    //     h = checkTime(h);
+    //     m = checkTime(m);
+    //     s = checkTime(s);
+
+    //     var digTime = h + ":" + m + ":" + s;
+    //     digitalTime(digCtx, digTime);
+    // }
+
+    function getDigitalTime(digCtx, h, m, s) {
+
+        h = checkTime(h);
+        m = checkTime(m);
+        s = checkTime(s);
+
+        var digTime = h + ":" + m + ":" + s;
+        digitalTime(digCtx, digTime);
+    }
+    //show digital time
+    function digitalTime(digCtx, digTime) {
+
+        digCtx.beginPath();
+        digCtx.font = '70px arial';
+        digCtx.fillStyle = 'black';
+        digCtx.textAlign = 'center';
+        digCtx.fillText(digTime, 150, 80);
+    }
+
+    //make time is of 2-digits
+    function checkTime(x) {
+        if (x < 10) {
+
+            x = '0' + x;
+            return x;
+        } else {
+            return x;
+        }
+    }
+    </script>
+</body>
+
+</html>

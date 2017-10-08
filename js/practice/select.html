@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <label>Choose Clock </label>
+    <select id="sel" onchange='currentValue()'>
+        <option value="analog">Analog</option>
+        <option value="digital">Digital</option>
+    </select>
+    <script type="text/javascript">
+
+    console.log(document.getElementById('sel').value);
+
+    function currentValue() {
+        var val = document.getElementById('sel').value;
+        console.log(val);
+    }
+    
+    </script>
+</body>
+
+</html>
