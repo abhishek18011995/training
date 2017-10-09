@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <button id="demo" onclick="max(21,63,4)">Click</button>
+    <p id="demo1"></p>
+    <script>
+    function max() {
+
+        var i, newArray = [];
+
+        for (i = 0; i < arguments.length; i++) {
+
+            newArray[i] = arguments[i];
+
+        }
+        newArray.sort(function(a, b) { return a - b; });   
+        demo1.innerHTML = newArray[arguments.length - 1];
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button id="demo" onclick="sum(2,3,4)">Click</button>
+<p id="demo1"></p>
+<script>
+
+function sum() {
+	
+	var i=0,sum=0;
+	console.log(arguments);
+	for(i;i<arguments.length;i++){
+		sum+=arguments[i];
+		
+	}
+	demo1.innerHTML=sum;
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <input id="num" type="text">
+    <button id="submit" onclick="submitNum()">Submit</button>
+    <p id="demo"></p>
+    <script>
+    var i = 1,
+        pat = "",
+
+        j,
+        a = "*";
+    //get input values
+    function submitNum() {
+
+        var num = document.getElementById('num').value;
+
+
+        for (i; i <= num; i++) {
+
+            for (j = 1; j <= i; j++) {
+                pat += a;
+            }
+            pat += "<br>"
+        }
+        document.getElementById("demo").innerHTML = pat;
+
+    }
+    </script>
+</body>
+
+</html>
